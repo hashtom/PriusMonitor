@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PriusMonitor</string>
+    <string name="action_settings">Settings</string>
+    <string name="water_temp_name">WaterTemp</string>
+    <string name="voltage_name">Valtage</string>
+    <string name="water_temp_value">0</string>
+    <string name="voltage_value">0</string>
+    <string name="voltage_unit">V</string>
+    <string name="water_temp_unit">℃</string>
+
+</resources>

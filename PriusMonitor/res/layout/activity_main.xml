@@ -23,7 +23,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textViewWater_temp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -56,7 +56,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/textViewVoltage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="41dp"
@@ -71,5 +71,13 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linearLayout2"
+        android:layout_alignParentBottom="true"
+        android:text="Refresh" />
 
 </RelativeLayout>

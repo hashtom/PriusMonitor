@@ -1,5 +1,7 @@
 package com.bridgeplaces.hybridmonitor;
 
+import android.R.string;
+
 public class PidParameter {
 	int paramId;
 	String paramName_1;
@@ -7,6 +9,7 @@ public class PidParameter {
 	String unit;
 	int mode;
 	int pid;
+	String equation;
 	String ATCommand;
 	EnuODB2ID obd2id;
 	Boolean isActivated;

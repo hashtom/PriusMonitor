@@ -11,8 +11,8 @@ public class DiagnosisOptions implements Iterable<PidParameter> {
 	
 	public DiagnosisOptions() {
 		// TODO Auto-generated constructor stub
-		initializeParameters();
 		diagnosisParameters = new ArrayList<PidParameter>();
+		initializeParameters();
 	}
 
 	@Override
@@ -58,7 +58,7 @@ public class DiagnosisOptions implements Iterable<PidParameter> {
 		int paramid = 0;
 		PidParameter param;
 		
-		//Water temp
+		//Water Temp
 		param = new PidParameter();
 		param.paramId = paramid;
 		param.paramName_1 = "水温";
@@ -66,6 +66,7 @@ public class DiagnosisOptions implements Iterable<PidParameter> {
 		param.unit = "C";
 		param.mode = 0x01;
 		param.pid = 0x05;
+		param.equation = "A-40";
 		param.ATCommand = null;
 		param.isActivated = true;
 		this.addParameter(param);
@@ -77,9 +78,24 @@ public class DiagnosisOptions implements Iterable<PidParameter> {
 		param.paramName_1 = "電圧";
 		param.paramName_2 = "Voltage";
 		param.unit = "V";
-		param.mode = 0x0;
-		param.pid = 0x0;
+		param.mode = 0;
+		param.pid = 0;
+		param.equation = null;
 		param.ATCommand ="RV";
+		param.isActivated = true;
+		this.addParameter(param);
+		
+		//SOC
+		paramid ++ ;
+		param = new PidParameter();
+		param.paramId = paramid;
+		param.paramName_1 = "SOC";
+		param.paramName_2 = "SOC";
+		param.unit = "%";
+		param.mode = 0x01;
+		param.pid = 0x5B;
+		param.equation = "A * 20 / 51";
+		param.ATCommand =null;
 		param.isActivated = true;
 		this.addParameter(param);
 	

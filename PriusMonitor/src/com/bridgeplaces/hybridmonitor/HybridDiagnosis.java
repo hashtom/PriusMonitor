@@ -14,5 +14,6 @@ public class HybridDiagnosis {
 		motorRpm = 0;
 		hybridBatteryVoltage = 0;
 		hybridBatteryTemp = 0;
+		
 	}
 }

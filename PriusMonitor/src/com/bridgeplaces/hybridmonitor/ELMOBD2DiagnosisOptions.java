@@ -4,27 +4,31 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class DiagnosisOptions implements Iterable<PidParameter> {
+public class ELMOBD2DiagnosisOptions implements Iterable<ELMOBD2PidParameter> {
 
-	private List<PidParameter> diagnosisParameters;
+	private List<ELMOBD2PidParameter> diagnosisParameters;
 	private int paramCount;
+
+	public static Boolean USE_GPS_DEVICE = true;
+	public static final Boolean USE_BLUETOOTH_DEVICE = true;
+	public static final Boolean USE_WIFI_DEVICE = false;
 	
-	public DiagnosisOptions() {
+	public ELMOBD2DiagnosisOptions() {
 		// TODO Auto-generated constructor stub
-		diagnosisParameters = new ArrayList<PidParameter>();
+		diagnosisParameters = new ArrayList<ELMOBD2PidParameter>();
 		initializeParameters();
 	}
 
 	@Override
-	public Iterator<PidParameter> iterator() {
-        return new Iterator<PidParameter>() {
+	public Iterator<ELMOBD2PidParameter> iterator() {
+        return new Iterator<ELMOBD2PidParameter>() {
             int index;
 
             public boolean hasNext() {
                 return index < paramCount;
             }
 
-            public PidParameter next() {
+            public ELMOBD2PidParameter next() {
                 return diagnosisParameters.get(index);
             }
             
@@ -36,7 +40,7 @@ public class DiagnosisOptions implements Iterable<PidParameter> {
         };
 	}
 		
-	public void addParameter(PidParameter param){
+	public void addParameter(ELMOBD2PidParameter param){
 		diagnosisParameters.add(param);
 		this.paramCount = this.diagnosisParameters.size();
 	}
@@ -56,10 +60,10 @@ public class DiagnosisOptions implements Iterable<PidParameter> {
 	//Initial data setting
 	private void initializeParameters(){
 		int paramid = 0;
-		PidParameter param;
+		ELMOBD2PidParameter param;
 		
 		//Water Temp
-		param = new PidParameter();
+		param = new ELMOBD2PidParameter();
 		param.paramId = paramid;
 		param.paramName_1 = "水温";
 		param.paramName_2 = "Water Temp";
@@ -73,7 +77,7 @@ public class DiagnosisOptions implements Iterable<PidParameter> {
 		
 		//Battery Voltage
 		paramid ++ ;
-		param = new PidParameter();
+		param = new ELMOBD2PidParameter();
 		param.paramId = paramid;
 		param.paramName_1 = "電圧";
 		param.paramName_2 = "Voltage";
@@ -87,7 +91,7 @@ public class DiagnosisOptions implements Iterable<PidParameter> {
 		
 		//SOC
 		paramid ++ ;
-		param = new PidParameter();
+		param = new ELMOBD2PidParameter();
 		param.paramId = paramid;
 		param.paramName_1 = "SOC";
 		param.paramName_2 = "SOC";

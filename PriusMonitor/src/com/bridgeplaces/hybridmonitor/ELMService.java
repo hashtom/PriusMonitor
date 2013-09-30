@@ -5,7 +5,7 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
 
-public class ELM327Device {
+public class ELMService {
 
     // Debugging
     private static final String TAG = "ELM327Device";
@@ -19,9 +19,9 @@ public class ELM327Device {
     public static final int MESSAGE_TOAST = 5;
     
     //Bluetooth service
-	private BluetoothService mBluetoothService;
+	private ELMBluetoothDevice mBluetoothService;
 	
-	public ELM327Device(BluetoothService btDevice) {
+	public ELMService(ELMBluetoothDevice btDevice) {
 		// TODO Auto-generated constructor stub
 		mBluetoothService = btDevice;
 	}
@@ -39,7 +39,7 @@ public class ELM327Device {
 		return odb2returned;
 	}
 	
-	public String sendElm327ATCommandTest(String command){
+	public String sendATCommandTest(String command){
 		String returnString = "ABC";
 		return returnString;
 	}
@@ -65,15 +65,15 @@ public class ELM327Device {
             case MESSAGE_STATE_CHANGE:
                 if(D) Log.i(TAG, "MESSAGE_STATE_CHANGE: " + msg.arg1);
                 switch (msg.arg1) {
-                case BluetoothService.STATE_CONNECTED:
+                case ELMBluetoothDevice.STATE_CONNECTED:
 //                    setStatus(getString(R.string.title_connected_to, mConnectedDeviceName));
 //                    mConversationArrayAdapter.clear();
                     break;
-                case BluetoothService.STATE_CONNECTING:
+                case ELMBluetoothDevice.STATE_CONNECTING:
 //                    setStatus(R.string.title_connecting);
                     break;
-                case BluetoothService.STATE_LISTEN:
-                case BluetoothService.STATE_NONE:
+                case ELMBluetoothDevice.STATE_LISTEN:
+                case ELMBluetoothDevice.STATE_NONE:
 //                    setStatus(R.string.title_not_connected);
                     break;
                 }

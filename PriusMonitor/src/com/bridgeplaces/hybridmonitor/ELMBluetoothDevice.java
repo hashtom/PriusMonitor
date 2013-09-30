@@ -15,7 +15,7 @@ import android.content.Context;
 //import android.os.Message;
 import android.util.Log;
 
-public class BluetoothService {
+public class ELMBluetoothDevice {
 
     // Debugging
     private static final String TAG = "ELM327BluetoothService";
@@ -50,7 +50,7 @@ public class BluetoothService {
      * @param context  The UI Activity Context
      * @param handler  A Handler to send messages back to the UI Activity
      */
-    public BluetoothService(Context context) {
+    public ELMBluetoothDevice() {
         mAdapter = BluetoothAdapter.getDefaultAdapter();
         mState = STATE_NONE;
     }
@@ -208,7 +208,7 @@ public class BluetoothService {
 //        mHandler.sendMessage(msg);
 
         // Start the service over to restart listening mode
-        BluetoothService.this.start();
+        ELMBluetoothDevice.this.start();
     }
 
     /**
@@ -223,7 +223,7 @@ public class BluetoothService {
 //        mHandler.sendMessage(msg);
 
         // Start the service over to restart listening mode
-        BluetoothService.this.start();
+        ELMBluetoothDevice.this.start();
     }
 
     /**
@@ -275,7 +275,7 @@ public class BluetoothService {
 
                 // If a connection was accepted
                 if (socket != null) {
-                    synchronized (BluetoothService.this) {
+                    synchronized (ELMBluetoothDevice.this) {
                         switch (mState) {
                         case STATE_LISTEN:
                         case STATE_CONNECTING:
@@ -367,7 +367,7 @@ public class BluetoothService {
             }
 
             // Reset the ConnectThread because we're done
-            synchronized (BluetoothService.this) {
+            synchronized (ELMBluetoothDevice.this) {
                 mConnectThread = null;
             }
 
@@ -429,7 +429,7 @@ public class BluetoothService {
                     Log.e(TAG, "disconnected", e);
                     connectionLost();
                     // Start the service over to restart listening mode
-                    BluetoothService.this.start();
+                    ELMBluetoothDevice.this.start();
                     break;
                 }
             }

@@ -2,7 +2,7 @@ package com.bridgeplaces.hybridmonitor;
 
 import java.util.Date;
 
-public class ELMOBD2Diagnosis {
+public class OBD2Diagnosis {
 
 	public Date UpdatedTime;
 	
@@ -23,7 +23,7 @@ public class ELMOBD2Diagnosis {
 	double hybridBatteryVoltage;
 	double hybridBatteryTemp;
 	
-	public ELMOBD2Diagnosis() {
+	public OBD2Diagnosis() {
 
 		//Standard
 		engineRpm = 0;

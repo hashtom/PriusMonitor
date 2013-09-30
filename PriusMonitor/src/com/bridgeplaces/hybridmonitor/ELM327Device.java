@@ -5,7 +5,7 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
 
-public class ELMService {
+public class ELM327Device {
 
     // Debugging
     private static final String TAG = "ELM327Device";
@@ -19,11 +19,11 @@ public class ELMService {
     public static final int MESSAGE_TOAST = 5;
     
     //Bluetooth service
-	private ELMBluetoothDevice mBluetoothService;
+	private ELMBluetoothService mBluetoothService;
 	
-	public ELMService(ELMBluetoothDevice btDevice) {
+	public ELM327Device(ELMBluetoothService btService) {
 		// TODO Auto-generated constructor stub
-		mBluetoothService = btDevice;
+		mBluetoothService = btService;
 	}
 	
 	private void initializeDevice(){
@@ -65,15 +65,15 @@ public class ELMService {
             case MESSAGE_STATE_CHANGE:
                 if(D) Log.i(TAG, "MESSAGE_STATE_CHANGE: " + msg.arg1);
                 switch (msg.arg1) {
-                case ELMBluetoothDevice.STATE_CONNECTED:
+                case ELMBluetoothService.STATE_CONNECTED:
 //                    setStatus(getString(R.string.title_connected_to, mConnectedDeviceName));
 //                    mConversationArrayAdapter.clear();
                     break;
-                case ELMBluetoothDevice.STATE_CONNECTING:
+                case ELMBluetoothService.STATE_CONNECTING:
 //                    setStatus(R.string.title_connecting);
                     break;
-                case ELMBluetoothDevice.STATE_LISTEN:
-                case ELMBluetoothDevice.STATE_NONE:
+                case ELMBluetoothService.STATE_LISTEN:
+                case ELMBluetoothService.STATE_NONE:
 //                    setStatus(R.string.title_not_connected);
                     break;
                 }

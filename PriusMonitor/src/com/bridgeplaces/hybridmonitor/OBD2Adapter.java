@@ -7,13 +7,13 @@ import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.bridgeplaces.hybridmonitor.ELMService.Odb2OutValue;
-import com.bridgeplaces.hybridmonitor.ELMOBD2PidParameter.EnuATCommand;
-import com.bridgeplaces.hybridmonitor.ELMOBD2PidParameter.EnuODB2ID;
+import com.bridgeplaces.hybridmonitor.ELM327Device.Odb2OutValue;
+import com.bridgeplaces.hybridmonitor.OBD2PidParameter.EnuATCommand;
+import com.bridgeplaces.hybridmonitor.OBD2PidParameter.EnuODB2ID;
 import com.example.android.BluetoothChat.DeviceListActivity;
 import com.example.android.BluetoothChat.R;
 
-public class ELMOBD2Adapter extends Activity {
+public class OBD2Adapter{
 
     // Debugging
     private static final String TAG = "OBD2Adapter";
@@ -27,14 +27,14 @@ public class ELMOBD2Adapter extends Activity {
 	//Device Services
 	private BluetoothAdapter mBluetoothAdapter = null;
     private BluetoothDevice mBluetoothService = null;
-	private ELMService mELM327Device = null;
+	private ELM327Device mELM327Device = null;
+	private ELMBluetoothService mELMBluetoothService = null;
 	
-	public ELMOBD2Adapter(BluetoothDevice btDevice) {
-		// TODO Auto-generated constructor stub
-		mELM327Device = new ELMService(btDevice);
-		if ( ELMOBD2DiagnosisOptions.USE_BLUETOOTH_DEVICE){
+	public OBD2Adapter(BluetoothDevice btDevice) {
+
+		if ( OBD2DiagnosisOptions.USE_BLUETOOTH_DEVICE){
 			initializeBluetoothDevice();
-		}else if (ELMOBD2DiagnosisOptions.USE_WIFI_DEVICE){
+		}else if (OBD2DiagnosisOptions.USE_WIFI_DEVICE){
 			//to do
 		}
 		
@@ -108,13 +108,13 @@ public class ELMOBD2Adapter extends Activity {
         if (mBluetoothService != null) mBluetoothService.stop();
 	}
 	
-	public ELMOBD2Diagnosis getOBD2Diagnosis(ELMOBD2DiagnosisOptions options){
+	public OBD2Diagnosis getOBD2Diagnosis(OBD2DiagnosisOptions options){
 		
-		ELMOBD2Diagnosis diagnosis = new ELMOBD2Diagnosis();
+		OBD2Diagnosis diagnosis = new OBD2Diagnosis();
 		Odb2OutValue outOdbValue;
 		String outElmATValue;
 		
-		for (ELMOBD2PidParameter param : options) {
+		for (OBD2PidParameter param : options) {
 			if(param.isActivated){
 				if (param.isATCommand){
 					switch (param.ATCommandType) {

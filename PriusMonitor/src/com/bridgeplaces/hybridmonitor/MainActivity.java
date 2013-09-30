@@ -19,8 +19,8 @@ public class MainActivity extends Activity {
     
 	//Diagnosis instances
 
-	private ELMOBD2DiagnosisOptions diagnosis;
-	private ELMOBD2Diagnosis obd2info;
+	private OBD2DiagnosisOptions diagnosis;
+	private OBD2Diagnosis obd2info;
 	
     //GUI component
     private Button button1;
@@ -28,7 +28,7 @@ public class MainActivity extends Activity {
     private TextView tvVoltage;
 	
 	public MainActivity() {
-		diagnosis = new ELMOBD2DiagnosisOptions();
+		diagnosis = new OBD2DiagnosisOptions();
 		
 	}
 	

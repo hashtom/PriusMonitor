@@ -4,31 +4,31 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class ELMOBD2DiagnosisOptions implements Iterable<ELMOBD2PidParameter> {
+public class OBD2DiagnosisOptions implements Iterable<OBD2PidParameter> {
 
-	private List<ELMOBD2PidParameter> diagnosisParameters;
+	private List<OBD2PidParameter> diagnosisParameters;
 	private int paramCount;
 
 	public static Boolean USE_GPS_DEVICE = true;
 	public static final Boolean USE_BLUETOOTH_DEVICE = true;
 	public static final Boolean USE_WIFI_DEVICE = false;
 	
-	public ELMOBD2DiagnosisOptions() {
+	public OBD2DiagnosisOptions() {
 		// TODO Auto-generated constructor stub
-		diagnosisParameters = new ArrayList<ELMOBD2PidParameter>();
+		diagnosisParameters = new ArrayList<OBD2PidParameter>();
 		initializeParameters();
 	}
 
 	@Override
-	public Iterator<ELMOBD2PidParameter> iterator() {
-        return new Iterator<ELMOBD2PidParameter>() {
+	public Iterator<OBD2PidParameter> iterator() {
+        return new Iterator<OBD2PidParameter>() {
             int index;
 
             public boolean hasNext() {
                 return index < paramCount;
             }
 
-            public ELMOBD2PidParameter next() {
+            public OBD2PidParameter next() {
                 return diagnosisParameters.get(index);
             }
             
@@ -40,7 +40,7 @@ public class ELMOBD2DiagnosisOptions implements Iterable<ELMOBD2PidParameter> {
         };
 	}
 		
-	public void addParameter(ELMOBD2PidParameter param){
+	public void addParameter(OBD2PidParameter param){
 		diagnosisParameters.add(param);
 		this.paramCount = this.diagnosisParameters.size();
 	}
@@ -60,10 +60,10 @@ public class ELMOBD2DiagnosisOptions implements Iterable<ELMOBD2PidParameter> {
 	//Initial data setting
 	private void initializeParameters(){
 		int paramid = 0;
-		ELMOBD2PidParameter param;
+		OBD2PidParameter param;
 		
 		//Water Temp
-		param = new ELMOBD2PidParameter();
+		param = new OBD2PidParameter();
 		param.paramId = paramid;
 		param.paramName_1 = "水温";
 		param.paramName_2 = "Water Temp";
@@ -77,7 +77,7 @@ public class ELMOBD2DiagnosisOptions implements Iterable<ELMOBD2PidParameter> {
 		
 		//Battery Voltage
 		paramid ++ ;
-		param = new ELMOBD2PidParameter();
+		param = new OBD2PidParameter();
 		param.paramId = paramid;
 		param.paramName_1 = "電圧";
 		param.paramName_2 = "Voltage";
@@ -91,7 +91,7 @@ public class ELMOBD2DiagnosisOptions implements Iterable<ELMOBD2PidParameter> {
 		
 		//SOC
 		paramid ++ ;
-		param = new ELMOBD2PidParameter();
+		param = new OBD2PidParameter();
 		param.paramId = paramid;
 		param.paramName_1 = "SOC";
 		param.paramName_2 = "SOC";

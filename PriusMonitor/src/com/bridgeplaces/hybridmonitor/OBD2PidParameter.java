@@ -2,7 +2,7 @@ package com.bridgeplaces.hybridmonitor;
 
 import android.R.string;
 
-public class ELMOBD2PidParameter {
+public class OBD2PidParameter {
 	int paramId;
 	String paramName_1;
 	String paramName_2;

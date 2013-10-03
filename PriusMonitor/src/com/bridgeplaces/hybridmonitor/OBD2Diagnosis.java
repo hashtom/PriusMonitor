@@ -2,6 +2,9 @@ package com.bridgeplaces.hybridmonitor;
 
 import java.util.Date;
 
+import android.content.Context;
+import android.os.Handler;
+
 public class OBD2Diagnosis {
 
 	public Date UpdatedTime;
@@ -23,7 +26,11 @@ public class OBD2Diagnosis {
 	double hybridBatteryVoltage;
 	double hybridBatteryTemp;
 	
-	public OBD2Diagnosis() {
+	/*
+    * @param context  The UI Activity Context
+    * @param handler  A Handler to send messages back to the UI Activity
+    */
+	public OBD2Diagnosis(Context context, Handler handler) {
 
 		//Standard
 		engineRpm = 0;
